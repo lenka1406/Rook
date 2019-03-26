@@ -2,6 +2,7 @@ using System;
 
 namespace homework
 {
+    // Програма запозичена
     class Program
     {
         static void Main(string[] args)
