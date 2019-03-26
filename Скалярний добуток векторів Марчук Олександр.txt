@@ -1,0 +1,70 @@
+using System;
+
+namespace homework
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Random rand = new Random();
+            int size = rand.Next(9);
+            int[,] matrix = new int[size, size];
+
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    matrix[i, j] = rand.Next(9);
+                    Console.Write("{0}  ", matrix[i, j]);
+                }
+                Console.WriteLine();
+            }
+
+            int sum1 = 0;
+            int sum2 = 0;
+            for (int i = 0; i < size; i++)
+            {
+                sum1 += matrix[i, i];
+                sum2 += matrix[i, size - i - 1];
+            }
+            Console.WriteLine($"SUM1= {sum1}");
+            Console.WriteLine($"SUM2= {sum2}");
+
+
+            int[] vector1 = new int[] { 1, 5, 4 };
+            int[] vector2 = new int[] { 1, 2, 0 };
+
+            int result = 0;
+            for (int i = 0; i < 3; i++)
+            {
+                result += vector1[i] * vector2[i];
+            }
+            Console.WriteLine($"result= {result}");
+
+            Console.Write("a= ");
+            int a = Convert.ToInt32(Console.ReadLine());
+            Console.Write("b= ");
+            int b = Convert.ToInt32(Console.ReadLine());
+            Console.Write("c= ");
+            int c = Convert.ToInt32(Console.ReadLine());
+            Console.Write("d= ");
+            int d = Convert.ToInt32(Console.ReadLine());
+
+            for (int i = a; i <= b; i++)
+            {
+                int copy = i;
+                int S = 0;
+                while (copy > 0)
+                {
+                    S += copy % 10;
+                    copy /= 10;
+                }
+                if (S >= c && S <= d)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+            Console.ReadKey();
+        }
+    }
+}
